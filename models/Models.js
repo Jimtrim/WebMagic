@@ -20,3 +20,8 @@ var Tournament = new Schema({
 	tables: {type: Schema.ObjectId, required: false, ref: "Player"}
 });
 
+modules.exports = {
+	Player: Player,
+	Table: Table,
+	Tournament: Tournament
+};
