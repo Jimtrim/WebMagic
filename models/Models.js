@@ -1,8 +1,8 @@
 /**
  * Created by jimtrim on 07/05/15.
  */
-var mongoose = require("mongoose"),
-	Schema = mongoose.Schema;
+var mongoose = require("mongoose");
+var Schema = mongoose.Schema;
 
 var Player = new Schema({
 	firstname: {type: String, required: true},
@@ -20,7 +20,7 @@ var Tournament = new Schema({
 	tables: {type: Schema.ObjectId, required: false, ref: "Player"}
 });
 
-modules.exports = {
+module.exports = {
 	Player: Player,
 	Table: Table,
 	Tournament: Tournament

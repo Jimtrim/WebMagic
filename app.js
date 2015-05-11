@@ -9,7 +9,23 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 
+var mongoose = require('mongoose');
 var Models = require('./models/Models');
+
+var connectDatabase = function () {
+	var options = { server: { socketOptions: { keepAlive: 1 } } };
+	console.log({user: process.env.DB_USER, pass: process.env.DB_PASS});
+
+	mongoose.connect(process.env.DB_HOST, {
+		user: process.env.DB_USER,
+		pass: process.env.DB_PASS
+	});
+};
+connectDatabase();
+mongoose.connection.on('error', console.log);
+mongoose.connection.on('disconnected', connectDatabase);
+
+
 
 var app = express();
 
